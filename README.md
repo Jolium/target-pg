@@ -1,7 +1,7 @@
 # target-pg
 
-###Target Passorwds Generator
-Generates passwords with the target in mind!
+### Target Passorwds Generator
+### Generates passwords with the target in mind!
 
 
 ## Requirements
