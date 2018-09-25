@@ -6,7 +6,7 @@
 
 ## Requirements
 * [Python](https://www.python.org/downloads/release/python-2714/)
-* [requests](https://pypi.org/project/requests/)
+* [Requests](https://pypi.org/project/requests/)
 
 
 ## Starting point
@@ -16,10 +16,10 @@ Through social engineering or otherwise get information about your target. Infor
 
 ## How it works
 
-1. Chose settings (default/change)
-   1. ex: default
+1. Choose settings (default/change)
+   1. ex: 'd'  (default)
 1. Enter word (just one each time)
-   1. ex: AbcDef "ENTER"
+   1. ex:  'AbcDef' (press enter)
 1. target-pg creates a list of passwords (Passwords_list.txt)
    * AbcDef0000
    * AbcDef0001
@@ -38,13 +38,13 @@ Through social engineering or otherwise get information about your target. Infor
    * AbcDef2
    * ......   ....
 1. Enter another word
-   1. ex: aBc
+   1. ex:  'aBc' (press enter)
 1. target-pg adds this new wordt to 'Passwords_list.txt'
    * aBc0000
    * aBc0001
    * aBc0002
    * ...   ....
-1. Write '//' to close target-pg
+1. Write '//' (press enter) to exit target-pg
 
 
 
