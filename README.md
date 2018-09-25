@@ -9,9 +9,43 @@
 * [requests](https://pypi.org/project/requests/)
 
 
-## How it works
+## Starting point
 
 Through social engineering or otherwise get information about your target. Information such as name, surname, place of birth, place where he is living, name of heroes or idols, etc. Enter those words to create (Passwords_list.txt) a list of possible passwords for this target.
+
+
+## How it works
+
+1. Chose settings (default/change)
+   1. ex: default
+1. Enter word (just one each time)
+   1. ex: AbcDef "ENTER"
+1. target-pg creates a list of passwords (Passwords_list.txt)
+   * AbcDef0000
+   * AbcDef0001
+   * AbcDef0002
+   * ......   ....
+   * AbcDef000
+   * AbcDef001
+   * AbcDef002
+   * ......   ....
+   * AbcDef00
+   * AbcDef01
+   * AbcDef02
+   * ......   ....
+   * AbcDef0
+   * AbcDef1
+   * AbcDef2
+   * ......   ....
+1. Enter another word
+   1. ex: aBc
+1. target-pg adds this new wordt to 'Passwords_list.txt'
+   * aBc0000
+   * aBc0001
+   * aBc0002
+   * ...   ....
+1. Write '//' to close target-pg
+
 
 
 ## Settings:
