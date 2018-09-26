@@ -3,10 +3,6 @@
 """
 Target Password Generator
 Generates passwords with the target in mind!
-
-Through social engineering or otherwise get information about your target.
-Information such as name, surname, place of birth, place where he is living, name of heroes or idols, etc.
-Enter those words to create (Passwords_list.txt) a list of possible passwords for this target.
 """
 
 password_list = []
@@ -19,15 +15,14 @@ upper_and_lower = False
 exp = 4
 
 
-def print_header():
-    print("")
-    print("11001010011101001100110010001100011010110011011000110101001110110")
+def header():
+    print("\n11001010011101001100110010001100011010110011011000110101001110110")
     print("  00100010101011011100101100  TARGET-PG  01001101011011000101110110")
-    print("    01110010000101110001100110101100111011011001000101010011101001101")
-    print("")
+    print("    01110010000101110001100110101100111011011001000101010011101001101\n")
 
 
 def yes_or_no():
+    # makes True = "y" and False = "n"
     global nb
     global na
     global nba
@@ -68,7 +63,9 @@ def settings():
     print("[6] Passwords with capital/small letters (default = n)        [6]:%s" % ul)
     print("[7] Length of numbers (default = 4)                           [7]:%d" % exp)
     print("\n=====================================================================\n")
+
     user_settings = int(input("Choose settings number (0-7): "))
+
     if 0 > user_settings > 7:
         print("Invalid value!")
         settings()
@@ -189,6 +186,7 @@ def user_settings_choice(user_settings):
 
 
 def user_choice():
+    # choice between "d" and "c" (default/change)
     choice = ""
 
     while choice != "d" and choice != "c":
@@ -202,6 +200,7 @@ def user_choice():
 
 
 def make_passwords(password):
+    # add passwords to list
     e = exp
 
     for x in range(4, 0, -1):
@@ -235,6 +234,7 @@ def enter_words():
     user_input = str(input("Enter word ('//' to stop): "))
 
     if user_input != "" and user_input != "//":
+        print("'" + user_input + "' added to Passwords_list.txt\n")
         make_passwords(user_input)
         return user_input
     elif user_input == "":
@@ -257,7 +257,7 @@ def make_pass_list():
     password_list = []
 
 
-print_header()
+header()
 user_choice()
 enter_words()
 
