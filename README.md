@@ -11,7 +11,7 @@
 
 ## Starting point
 
-Through social engineering or otherwise get information about your target. Information such as name, surname, place of birth, place where he is living, name of heroes or idols, etc. Enter those words to create (Passwords_list.txt) a list of possible passwords for this target.
+Through social engineering or otherwise get information about your target. Information such as name, surname, place of birth, place where he is living, name of heroes or idols, etc. Enter these words to create (Passwords_list.txt) a list of possible passwords for this target.
 
 
 ## How it works

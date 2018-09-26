@@ -196,7 +196,7 @@ def user_choice():
         elif choice == "c":
             settings()
         else:
-            print("Invalid option!")
+            print("Invalid option!\n")
 
 
 def make_passwords(password):
@@ -226,21 +226,22 @@ def make_passwords(password):
                     password_list.append(str(num).zfill(x) + str(password.lower()) + str(num).zfill(x))
                     password_list.append(str(num).zfill(x) + str(password.upper()) + str(num).zfill(x))
 
+    print("'" + password + "' added to Passwords_list.txt")
     make_pass_list()
     enter_words()
 
 
 def enter_words():
-    user_input = str(input("Enter word ('//' to stop): "))
+    user_input = str(input("\nEnter word ('//' to stop): "))
 
-    if user_input != "" and user_input != "//":
-        print("'" + user_input + "' added to Passwords_list.txt\n")
+    if user_input == "//":
+        print(">>>> target-pg closed <<<< ")
+    elif user_input == "" or " " in user_input:
+        print("No word entered!")
+        enter_words()
+    else:
         make_passwords(user_input)
         return user_input
-    elif user_input == "":
-        print("No word entered!")
-    else:
-        return
 
 
 def make_pass_list():
