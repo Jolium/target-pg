@@ -39,7 +39,7 @@ Through social engineering or otherwise get information about your target. Infor
    * ......   ....
 1. Enter another word
    1. ex:  'aBc' (press enter)
-1. target-pg adds this new wordt to 'Passwords_list.txt'
+1. target-pg adds this new word to 'Passwords_list.txt'
    * aBc0000
    * aBc0001
    * aBc0002
