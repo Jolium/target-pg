@@ -21,57 +21,51 @@ def header():
     print("    01110010000101110001100110101100111011011001000101010011101001101\n")
 
 
-def yes_or_no():
-    # makes True = "y" and False = "n"
-    global nb
-    global na
-    global nba
-    global ul
-
-    if num_before:
-        nb = "y"
-    if not num_before:
-        nb = "n"
-
-    if num_after:
-        na = "y"
-    if not num_after:
-        na = "n"
-
-    if num_before_and_after:
-        nba = "y"
-    if not num_before_and_after:
-        nba = "n"
-
-    if upper_and_lower:
-        ul = "y"
-    if not upper_and_lower:
-        ul = "n"
+def y_or_n(boolean):
+        if boolean:
+            return "y"
+        else:
+            return "n"
 
 
 def settings():
-    yes_or_no()
     print("\n\n=====================================================================")
     print("                              Settings")
     print("=====================================================================\n")
     print("[0] Exit settings")
     print("[1] Passwords minimum length (default = 8)                    [1]:%d" % min_char)
     print("[2] Passwords maximum length (default = 12)                   [2]:%d" % max_char)
-    print("[3] Passwords with numbers before (default = n)               [3]:%s" % nb)
-    print("[4] Passwords with numbers after (default = y)                [4]:%s" % na)
-    print("[5] Passwords with numbers before and after (default = n)     [5]:%s" % nba)
-    print("[6] Passwords with capital/small letters (default = n)        [6]:%s" % ul)
+    print("[3] Passwords with numbers before (default = n)               [3]:%s" % y_or_n(num_before))
+    print("[4] Passwords with numbers after (default = y)                [4]:%s" % y_or_n(num_after))
+    print("[5] Passwords with numbers before and after (default = n)     [5]:%s" % y_or_n(num_before_and_after))
+    print("[6] Passwords with capital/small letters (default = n)        [6]:%s" % y_or_n(upper_and_lower))
     print("[7] Length of numbers (default = 4)                           [7]:%d" % exp)
     print("\n=====================================================================\n")
 
-    user_settings = int(input("Choose settings number (0-7): "))
+    user_settings = input("Choose settings number (0-7): ")
 
-    if 0 > user_settings > 7:
-        print("Invalid value!")
+    try:
+        int(user_settings)
+    except ValueError:
+        print("Invalid input! Please enter value from '0' to '7'.")
         settings()
-    else:
+
+    user_settings = int(user_settings)
+    if user_settings < 0 or user_settings > 7:
+        print("Invalid value! Please enter value from '0' to '7'.")
+        settings()
+
+    if 0 <= user_settings <= 7:
         user_settings_choice(user_settings)
-        return
+
+
+def validation(input_value, user_numb):
+    # make possible strings as input do not return errors
+    try:
+        int(input_value)
+    except ValueError:
+        print("Invalid input! Please enter a valid number.")
+        user_settings_choice(user_numb)
 
 
 def user_settings_choice(user_settings):
@@ -90,7 +84,9 @@ def user_settings_choice(user_settings):
     elif user_settings == 1:
         while True:
             print("\n" + "[1] Passwords minimum length (default = 8)")
-            value1 = int(input("    Set the new value (1 - 12): "))
+            value1 = input("    Set the new value (1 - 12): ")
+            validation(value1, user_settings)
+            value1 = int(value1)
             if value1 > max_char:
                 print("Invalid value! Minimum length cannot be higher than maximum length.")
             elif 1 <= value1 <= 12:
@@ -103,7 +99,9 @@ def user_settings_choice(user_settings):
     elif user_settings == 2:
         while True:
             print("\n" + "[2] Passwords maximum length (default = 12)")
-            value2 = int(input("    Set the new value (8 - 18): "))
+            value2 = input("    Set the new value (8 - 18): ")
+            validation(value2, user_settings)
+            value2 = int(value2)
             if value2 < min_char:
                 print("Invalid value! Maximum length cannot be lower than minimum length.")
             elif 8 <= value2 <= 18:
@@ -176,7 +174,9 @@ def user_settings_choice(user_settings):
     elif user_settings == 7:
         while True:
             print("\n" + "[7] Length of numbers (default = 4)")
-            value7 = int(input("    Set the new value (0 - 8): "))
+            value7 = input("    Set the new value (0 - 8): ")
+            validation(value7, user_settings)
+            value7 = int(value7)
             if 0 <= value7 <= 8:
                 exp = value7
                 settings()
