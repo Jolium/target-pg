@@ -42,13 +42,13 @@ def settings():
     print("[7] Length of numbers (default = 4)                           [7]:%d" % exp)
     print("\n=====================================================================\n")
 
-    user_settings = input("Choose settings number (0-7): ")
-
-    try:
-        int(user_settings)
-    except ValueError:
-        print("Invalid input! Please enter value from '0' to '7'.")
-        settings()
+    while True:
+        try:
+            user_settings = int(input("Choose settings number (0-7): "))
+            break
+        except ValueError:
+            print("Invalid input! Please enter value from '0' to '7'.")
+            settings()
 
     user_settings = int(user_settings)
     if user_settings < 0 or user_settings > 7:
@@ -79,7 +79,7 @@ def user_settings_choice(user_settings):
 
     if user_settings == 0:
         print("[0] Exit settings\n")
-        return
+        enter_words()
 
     elif user_settings == 1:
         while True:
@@ -192,7 +192,7 @@ def user_choice():
     while choice != "d" and choice != "c":
         choice = str(input("Press 'd' to default settings or 'c' to change settings: ").lower())
         if choice == "d":
-            break
+            enter_words()
         elif choice == "c":
             settings()
         else:
@@ -232,10 +232,15 @@ def make_passwords(password):
 
 
 def enter_words():
-    user_input = str(input("\nEnter word ('//' to stop): "))
+    print("\n>>>> enter '/' to settings or '//' to stop <<<<")
+    user_input = str(input("Enter word: "))
 
     if user_input == "//":
-        print(">>>> target-pg closed <<<< ")
+        print("\n>>>> target-pg closed <<<<")
+        exit()
+    elif user_input == "/":
+        print("\n>>>> going  to settings <<<<")
+        settings()
     elif user_input == "" or " " in user_input:
         print("No word entered!")
         enter_words()
@@ -260,6 +265,3 @@ def make_pass_list():
 
 header()
 user_choice()
-enter_words()
-
-exit()
