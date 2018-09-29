@@ -259,7 +259,7 @@ def make_pass_list():
             password_list2.append(word)
 
     file = open("Passwords_list.txt", "a+")
-    file.write("\n".join(map(str, password_list2)))
+    file.write("\n".join(map(str, password_list2)) + "\n")
     password_list = []
 
 
