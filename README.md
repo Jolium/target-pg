@@ -4,6 +4,10 @@
 ### Generates passwords with the target in mind!
 
 
+## Video
+* [YouTube](https://youtu.be/RiOBheDLXr4)
+
+
 ## Requirements
 * [Python](https://www.python.org/downloads/release/python-2714/)
 * [Requests](https://pypi.org/project/requests/)

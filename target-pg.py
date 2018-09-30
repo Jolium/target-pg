@@ -236,7 +236,7 @@ def enter_words():
     user_input = str(input("Enter word: "))
 
     if user_input == "//":
-        print("\n>>>> target-pg closed <<<<")
+        print("\n>>>> target-pg closed <<<<\n")
         exit()
     elif user_input == "/":
         print("\n>>>> going  to settings <<<<")
